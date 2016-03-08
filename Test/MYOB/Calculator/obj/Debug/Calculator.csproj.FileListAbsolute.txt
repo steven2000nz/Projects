@@ -6,7 +6,6 @@ F:\Test\MYOB\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cach
 F:\Test\MYOB\Calculator\obj\Debug\Calculator.dll
 F:\Test\MYOB\Calculator\obj\Debug\Calculator.pdb
 F:\Test\MYOB\Calculator\bin\Debug\Tax\TaxTable.csv
-F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
 F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\obj\Debug\Calculator.dll
 F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\obj\Debug\Calculator.pdb
 F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\Tax\TaxTable.csv
@@ -20,3 +19,4 @@ F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\Castle.Core.dll
 F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\Castle.Windsor.dll
 F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\Castle.Core.xml
 F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\Castle.Windsor.xml
+F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache

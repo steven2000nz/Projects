@@ -17,3 +17,6 @@ F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Castle.Core.xml
 F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Castle.Windsor.xml
 F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Rhino.Mocks.xml
 F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\FileHelpers.xml
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\TestData\InputData.csv
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\TestData\OutputData.csv
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\TestData\TaxTable.csv
