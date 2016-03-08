@@ -4,3 +4,16 @@ F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Microsoft.VisualStud
 F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
 F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\obj\Debug\UnitTest.dll
 F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\obj\Debug\UnitTest.pdb
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Data\InputData.csv
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Data\OutputData.csv
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Tax\TaxTable.csv
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Calculator.dll
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Castle.Core.dll
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Castle.Windsor.dll
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Rhino.Mocks.dll
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\FileHelpers.dll
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Calculator.pdb
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Castle.Core.xml
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Castle.Windsor.xml
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Rhino.Mocks.xml
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\FileHelpers.xml

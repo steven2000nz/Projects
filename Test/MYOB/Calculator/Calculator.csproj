@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\ICalculatorContainer.cs" />
     <Compile Include="Interface\ITaxManager.cs" />
     <Compile Include="Manager\TaxManager.cs" />
     <Compile Include="Manager\PayslipManager.cs" />

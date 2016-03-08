@@ -14,23 +14,29 @@
     {
         private static void Main(string[] args)
         {
-            GeneratePayslip();
+            var inputPath = Path.Combine(Environment.CurrentDirectory, @"Data\InputData.csv");
+            var outputPath = Path.Combine(Environment.CurrentDirectory, @"Data\OutputData.csv");
+            var taxTablePath = Path.Combine(Environment.CurrentDirectory, @"Tax\TaxTable.csv");
+
+            ICalculatorContainer calculatorContainer = new Container();
+            var calculatorChildContainer = calculatorContainer.RegisterComponents();
+
+            var container = new WindsorContainer();
+            container.AddChildContainer(calculatorChildContainer);
+
+            GeneratePayslip(container.GetChildContainer(Calculator.Register.Container.Name), inputPath, outputPath, taxTablePath);
         }
 
-        private static void GeneratePayslip()
+        private static void GeneratePayslip(IWindsorContainer container, string inputPath, string outputPath, string taxTablePath)
         {
-            var container = new WindsorContainer();
-            var calculatorContainer = new Container();
-            calculatorContainer.RegisterComponents(container);
-
-            var fileReadInputData = container.Resolve<IFileReadAccess<InputData>>("CsvFileReadAccess");
-            var fileWriteOutputData = container.Resolve<IFileWriteAccess<OutputData>>("CsvFileWriteAccess");
+            var fileReadInputData = container.Resolve<IFileReadAccess<InputData>>(Container.CsvFileReadAccess);
+            var fileWriteOutputData = container.Resolve<IFileWriteAccess<OutputData>>(Container.CsvFileWriteAccess);
             var payslipManager = container.Resolve<IPayslipManager>();
             var taxManager = container.Resolve<ITaxManager>();
-            var fileReadTaxData = container.Resolve<IFileReadAccess<Tax>>("CsvFileReadAccess");
+            var fileReadTaxData = container.Resolve<IFileReadAccess<Tax>>(Container.CsvFileReadAccess);
 
-            var taxList = fileReadTaxData.ReadFile(Path.Combine(Environment.CurrentDirectory, @"Tax\TaxTable.csv"));
-            var records = fileReadInputData.ReadFile(Path.Combine(Environment.CurrentDirectory, @"Data\InputData.csv"));
+            var taxList = fileReadTaxData.ReadFile(taxTablePath);
+            var records = fileReadInputData.ReadFile(inputPath);
             var outputData = new List<OutputData>();
 
             foreach (var record in records)
@@ -38,9 +44,7 @@
                 outputData.Add(payslipManager.GenerateOutputData(record, taxList, taxManager));
             }
 
-            fileWriteOutputData.WriteFile(
-                Path.Combine(Environment.CurrentDirectory, @"Data\OutputData.csv"),
-                outputData);
+            fileWriteOutputData.WriteFile(outputPath, outputData);
         }
     }
 }
