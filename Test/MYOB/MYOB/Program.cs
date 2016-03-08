@@ -9,6 +9,8 @@
     using Calculator.Manager;
     using Calculator.Model;
 
+    using Castle.Windsor;
+
     internal class Program
     {
         private static void Main(string[] args)
@@ -18,11 +20,14 @@
 
         private static void GeneratePayslip()
         {
-            IFileReadAccess<InputData> fileReadInputData = new CsvFileReadAccess<InputData>();
-            IFileWriteAccess<OutputData> fileWriteOutputData = new CsvFileWriteAccess<OutputData>();
-            IPayslipManager payslipManager = new PayslipManager();
-            ITaxManager taxManager = new TaxManager();
-            IFileReadAccess<Tax> fileReadTaxData = new CsvFileReadAccess<Tax>();
+            var container = new WindsorContainer();
+            Calculator.Register.Container.RegisterComponents(container);
+
+            IFileReadAccess<InputData> fileReadInputData = container.Resolve<IFileReadAccess<InputData>>("CsvFileReadAccess");
+            IFileWriteAccess<OutputData> fileWriteOutputData = container.Resolve<IFileWriteAccess<OutputData>>("CsvFileWriteAccess");
+            IPayslipManager payslipManager = container.Resolve<IPayslipManager>();
+            ITaxManager taxManager = container.Resolve<ITaxManager>();
+            IFileReadAccess<Tax> fileReadTaxData = container.Resolve<IFileReadAccess<Tax>>("CsvFileReadAccess");
 
             var taxList = fileReadTaxData.ReadFile(Path.Combine(Environment.CurrentDirectory, @"Tax\TaxTable.csv"));
             var records = fileReadInputData.ReadFile(Path.Combine(Environment.CurrentDirectory, @"Data\InputData.csv"));

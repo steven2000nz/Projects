@@ -16,3 +16,7 @@ F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\FileHelpers.dll
 F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\FileHelpers.xml
 F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\Data\InputData.csv
 F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\Data\OutputData.csv
+F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\Castle.Core.dll
+F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\Castle.Windsor.dll
+F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\Castle.Core.xml
+F:\Build\StevenGithub\Projects\Test\MYOB\Calculator\bin\Debug\Castle.Windsor.xml

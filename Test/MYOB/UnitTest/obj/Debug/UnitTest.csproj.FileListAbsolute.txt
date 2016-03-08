@@ -1,0 +1,6 @@
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\UnitTest.dll
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\UnitTest.pdb
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\obj\Debug\UnitTest.dll
+F:\Build\StevenGithub\Projects\Test\MYOB\UnitTest\obj\Debug\UnitTest.pdb
