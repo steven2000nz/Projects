@@ -9,7 +9,7 @@
 
     public class Container
     {
-        public static void RegisterComponents(WindsorContainer container)
+        public void RegisterComponents(WindsorContainer container)
         {
             container.Register(
                 Component.For(typeof(IPayslipManager)).ImplementedBy(typeof(PayslipManager)).LifestyleTransient());

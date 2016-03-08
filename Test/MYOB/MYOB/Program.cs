@@ -4,10 +4,9 @@
     using System.Collections.Generic;
     using System.IO;
 
-    using Calculator.DataAccess;
     using Calculator.Interface;
-    using Calculator.Manager;
     using Calculator.Model;
+    using Calculator.Register;
 
     using Castle.Windsor;
 
@@ -21,13 +20,14 @@
         private static void GeneratePayslip()
         {
             var container = new WindsorContainer();
-            Calculator.Register.Container.RegisterComponents(container);
+            var calculatorContainer = new Container();
+            calculatorContainer.RegisterComponents(container);
 
-            IFileReadAccess<InputData> fileReadInputData = container.Resolve<IFileReadAccess<InputData>>("CsvFileReadAccess");
-            IFileWriteAccess<OutputData> fileWriteOutputData = container.Resolve<IFileWriteAccess<OutputData>>("CsvFileWriteAccess");
-            IPayslipManager payslipManager = container.Resolve<IPayslipManager>();
-            ITaxManager taxManager = container.Resolve<ITaxManager>();
-            IFileReadAccess<Tax> fileReadTaxData = container.Resolve<IFileReadAccess<Tax>>("CsvFileReadAccess");
+            var fileReadInputData = container.Resolve<IFileReadAccess<InputData>>("CsvFileReadAccess");
+            var fileWriteOutputData = container.Resolve<IFileWriteAccess<OutputData>>("CsvFileWriteAccess");
+            var payslipManager = container.Resolve<IPayslipManager>();
+            var taxManager = container.Resolve<ITaxManager>();
+            var fileReadTaxData = container.Resolve<IFileReadAccess<Tax>>("CsvFileReadAccess");
 
             var taxList = fileReadTaxData.ReadFile(Path.Combine(Environment.CurrentDirectory, @"Tax\TaxTable.csv"));
             var records = fileReadInputData.ReadFile(Path.Combine(Environment.CurrentDirectory, @"Data\InputData.csv"));
