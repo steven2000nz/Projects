@@ -25,6 +25,8 @@
                 Component.For(typeof(IFileWriteAccess<>)).ImplementedBy(typeof(CsvFileWriteAccess<>)).Named(CsvFileWriteAccess).LifestyleTransient());
             container.Register(
                 Component.For(typeof(IPayslipManager)).ImplementedBy(typeof(PayslipManager)).LifestyleTransient());
+            container.Register(
+                Component.For(typeof(IFileReadAsyncAccess<>)).ImplementedBy(typeof(CsvFileReadAccess<>)).LifestyleTransient());
 
             Name = container.Name;
 

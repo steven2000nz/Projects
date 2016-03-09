@@ -1,6 +1,7 @@
 ﻿namespace Calculator.Manager
 {
     using System.Collections.Generic;
+    using System.IO;
 
     using Calculator.Interface;
     using Calculator.Model;
@@ -16,22 +17,25 @@
             string outputPath,
             string taxTablePath)
         {
-            var fileReadInputData = container.Resolve<IFileReadAccess<InputData>>(Container.CsvFileReadAccess);
+            var fileReadAsyncInputData = container.Resolve<IFileReadAsyncAccess<InputData>>();
             var fileWriteOutputData = container.Resolve<IFileWriteAccess<OutputData>>(Container.CsvFileWriteAccess);
             var payslipManager = container.Resolve<ICalculationManager>();
             var taxManager = container.Resolve<ITaxManager>();
             var fileReadTaxData = container.Resolve<IFileReadAccess<Tax>>(Container.CsvFileReadAccess);
 
+            fileWriteOutputData.WriteFile(outputPath, new List<OutputData>());
             var taxList = fileReadTaxData.ReadFile(taxTablePath);
-            var records = fileReadInputData.ReadFile(inputPath);
-            var outputData = new List<OutputData>();
 
-            foreach (var record in records)
+            using (StreamWriter sw = File.AppendText(outputPath))
             {
-                outputData.Add(payslipManager.GenerateOutputData(record, taxList, taxManager));
+                fileReadAsyncInputData.ReadFileAsync(inputPath, record =>
+                {
+                    var outputData = payslipManager.GenerateOutputData(record, taxList, taxManager);
+                    string formatedRecord = 
+                        string.Format($"{outputData.Name},{outputData.PayPeriod},{outputData.GrossIncome},{outputData.IncomeTax},{outputData.NetIncome},{outputData.Super}");
+                    sw.WriteLine(formatedRecord);
+                });
             }
-
-            fileWriteOutputData.WriteFile(outputPath, outputData);
         }
     }
 }
