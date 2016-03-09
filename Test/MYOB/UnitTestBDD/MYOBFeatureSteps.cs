@@ -11,6 +11,8 @@ namespace UnitTestBDD
     using Calculator.Model;
     using Calculator.Register;
 
+    using Castle.Windsor;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [Binding]
@@ -19,31 +21,35 @@ namespace UnitTestBDD
         string inputDataPath;
         string outputDataPath;
         string taxTablePath;
+        readonly IWindsorContainer calculatorChildContainer;
+
+        public MYOBFeatureSteps()
+        {
+            ICalculatorContainer calculatorContainer = new Container();
+            calculatorChildContainer = calculatorContainer.RegisterComponents();
+        }
 
         [Given(@"I have entered input data path ""(.*)"" into the system")]
         public void GivenIHaveEnteredInputDataPathIntoTheSystem(string p0)
         {
-            inputDataPath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, p0);
+            inputDataPath = GetPath(p0);
         }
         
         [Given(@"I have entered output data path ""(.*)"" into the system")]
         public void GivenIHaveEnteredOutputDataPathIntoTheSystem(string p0)
         {
-            outputDataPath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, p0);
+            outputDataPath = GetPath(p0);
         }
         
         [Given(@"I have entered tax table path ""(.*)"" into the system")]
         public void GivenIHaveEnteredTaxTablePathIntoTheSystem(string p0)
         {
-            taxTablePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, p0);
+            taxTablePath = GetPath(p0);
         }
         
         [When(@"I press enter")]
         public void WhenIPressEnter()
         {
-            ICalculatorContainer calculatorContainer = new Container();
-            var calculatorChildContainer = calculatorContainer.RegisterComponents();
-
             var payslipManager = calculatorChildContainer.Resolve<IPayslipManager>();
             payslipManager.GeneratePayslip(calculatorChildContainer, inputDataPath, outputDataPath, taxTablePath);
         }
@@ -51,13 +57,18 @@ namespace UnitTestBDD
         [Then(@"the result should be written to the output data path\.")]
         public void ThenTheResultShouldBeWrittenToTheOutputDataPath_()
         {
-            IFileReadAccess<OutputData> fileReadResult = new CsvFileReadAccess<OutputData>();
+            IFileReadAccess<OutputData> fileReadResult = calculatorChildContainer.Resolve<IFileReadAccess<OutputData>>(Container.CsvFileReadAccess);
             var firstRecord = fileReadResult.ReadFile(outputDataPath).First();
 
             Assert.AreEqual(firstRecord.IncomeTax, 922);
             Assert.AreEqual(firstRecord.GrossIncome, 5004);
             Assert.AreEqual(firstRecord.Super, 450);
             Assert.AreEqual(firstRecord.NetIncome, 4082);
+        }
+
+        private string GetPath(string path)
+        {
+            return Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, path);
         }
     }
 }
