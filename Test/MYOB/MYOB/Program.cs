@@ -8,21 +8,38 @@
 
     using Castle.Windsor;
 
+    using static System.Console;
+
     internal class Program
     {
         private static readonly WindsorContainer Container = new WindsorContainer();
 
         private static void Main(string[] args)
         {
-            var inputPath = Path.Combine(Environment.CurrentDirectory, @"Data\InputData.csv");
-            var outputPath = Path.Combine(Environment.CurrentDirectory, @"Data\OutputData.csv");
-            var taxTablePath = Path.Combine(Environment.CurrentDirectory, @"Tax\TaxTable.csv");
+            var inputDataPath = ReadInput("Please enter input data path", @"Data\InputData.csv");
+            var outputDataPath = ReadInput("Please enter output data path", @"Data\OutputData.csv");
+            var taxTablePath = ReadInput("Please enter tax table path", @"Tax\TaxTable.csv");
 
             RegisterContainers();
 
             var calculatorContainer = Container.GetChildContainer(Calculator.Register.Container.Name);
             var payslipManager = calculatorContainer.Resolve<IPayslipManager>();
-            payslipManager.GeneratePayslip(calculatorContainer, inputPath, outputPath, taxTablePath);
+            payslipManager.GeneratePayslip(calculatorContainer, inputDataPath, outputDataPath, taxTablePath);
+
+            WriteLine($"Payslip is written to '{outputDataPath}'.");
+        }
+
+        private static string ReadInput(string requestInput, string defaultPath)
+        {
+            WriteLine(requestInput + ":");
+            var path = ReadLine()?.Trim();
+
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                path = Path.Combine(Environment.CurrentDirectory, defaultPath);
+            }
+
+            return path;
         }
 
         private static void RegisterContainers()
