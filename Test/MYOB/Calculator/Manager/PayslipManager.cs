@@ -9,6 +9,9 @@
 
     using Castle.Windsor;
 
+    /// <summary>
+    /// Generate payslip
+    /// </summary>
     public class PayslipManager : IPayslipManager
     {
         public void GeneratePayslip(

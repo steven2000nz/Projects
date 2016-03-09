@@ -2,6 +2,9 @@
 {
     using FileHelpers;
 
+    /// <summary>
+    /// Tax table used for calculation
+    /// </summary>
     [IgnoreFirst(1)]
     [DelimitedRecord(",")]
     public class Tax

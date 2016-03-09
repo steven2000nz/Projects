@@ -4,6 +4,9 @@
 
     using FileHelpers;
 
+    /// <summary>
+    /// Employee record
+    /// </summary>
     [IgnoreFirst(1)]
     [DelimitedRecord(",")]
     public class InputData

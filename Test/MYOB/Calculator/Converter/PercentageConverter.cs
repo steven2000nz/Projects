@@ -5,6 +5,9 @@
 
     using FileHelpers;
 
+    /// <summary>
+    /// Convert percentage to int
+    /// </summary>
     internal class PercentageConverter : ConverterBase
     {
         public override object StringToField(string from)

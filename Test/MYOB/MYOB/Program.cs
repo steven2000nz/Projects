@@ -18,12 +18,15 @@
         {
             try
             {
+                //Get user inputs
                 var inputDataPath = ReadInput("Please enter input data path", @"Data\InputData.csv");
                 var outputDataPath = ReadInput("Please enter output data path", @"Data\OutputData.csv");
                 var taxTablePath = ReadInput("Please enter tax table path", @"Tax\TaxTable.csv");
 
+                //Register components in Calculator assembly
                 RegisterContainers();
 
+                //Generate payslip
                 var calculatorContainer = Container.GetChildContainer(Calculator.Register.Container.Name);
                 var payslipManager = calculatorContainer.Resolve<IPayslipManager>();
                 payslipManager.GeneratePayslip(calculatorContainer, inputDataPath, outputDataPath, taxTablePath);

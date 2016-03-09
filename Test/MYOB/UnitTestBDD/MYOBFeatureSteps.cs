@@ -14,7 +14,10 @@ namespace UnitTestBDD
     using Castle.Windsor;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+    
+    /// <summary>
+    /// Test the whole use case 
+    /// </summary>
     [Binding]
     public class MYOBFeatureSteps
     {

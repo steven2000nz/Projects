@@ -6,6 +6,9 @@
     using Calculator.Interface;
     using Calculator.Model;
 
+    /// <summary>
+    /// Calculate and generate output data.
+    /// </summary>
     public class CalculationManager : ICalculationManager
     {
         public OutputData GenerateOutputData(InputData inputData, List<Tax> taxList, ITaxManager manager)

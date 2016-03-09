@@ -9,6 +9,9 @@
     using Castle.MicroKernel.Registration;
     using Castle.Windsor;
 
+    /// <summary>
+    /// Register components
+    /// </summary>
     public class Container : ICalculatorContainer
     {
         public WindsorContainer RegisterComponents()

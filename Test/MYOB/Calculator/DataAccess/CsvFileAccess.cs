@@ -9,6 +9,10 @@
 
     using FileHelpers;
 
+    /// <summary>
+    /// Read from CSV file
+    /// </summary>
+    /// <typeparam name="TIn"></typeparam>
     public class CsvFileReadAccess<TIn> : FileReadAccess<TIn>, IFileReadAsyncAccess<TIn>
         where TIn : class
     {
@@ -19,6 +23,11 @@
             return records.ToList();
         }
 
+        /// <summary>
+        /// Read one record at a time into memory
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="action"></param>
         public void ReadFileAsync(string filePath, Action<TIn> action)
         {
             var engine = new FileHelperAsyncEngine<TIn>(Encoding.UTF8);
@@ -32,6 +41,10 @@
         }
     }
 
+    /// <summary>
+    /// Write to CSV file
+    /// </summary>
+    /// <typeparam name="TOut"></typeparam>
     public class CsvFileWriteAccess<TOut> : FileWriteAccess<TOut>
         where TOut : class
     {

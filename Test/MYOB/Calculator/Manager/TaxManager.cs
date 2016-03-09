@@ -7,6 +7,9 @@
     using Calculator.Interface;
     using Calculator.Model;
 
+    /// <summary>
+    /// Calculate tax rate
+    /// </summary>
     public class TaxManager : ITaxManager
     {
         public int CalculateTax(List<Tax> taxList, int annualSalary)

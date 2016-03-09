@@ -2,6 +2,9 @@
 {
     using FileHelpers;
 
+    /// <summary>
+    /// Employee payslip
+    /// </summary>
     [IgnoreFirst(1)]
     [DelimitedRecord(",")]
     public class OutputData

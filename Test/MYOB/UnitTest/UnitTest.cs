@@ -23,6 +23,10 @@
     {
         private static WindsorContainer container;
 
+        /// <summary>
+        /// Register required components for testing
+        /// </summary>
+        /// <param name="context"></param>
         [ClassInitialize]
         public static void ClassInit(TestContext context)
         {
@@ -58,6 +62,9 @@
         {
         }
 
+        /// <summary>
+        /// Read employee record from file, and map to input data model
+        /// </summary>
         [TestMethod]
         public void ReadInputData()
         {
@@ -69,6 +76,9 @@
             Assert.AreEqual(firstRecord.AnnualSalary, 60050);
         }
 
+        /// <summary>
+        /// Read tax table from file, and map to tax model
+        /// </summary>
         [TestMethod]
         public void ReadTaxTable()
         {
@@ -80,6 +90,9 @@
             Assert.AreEqual(lastRecord.Rate, 45);
         }
 
+        /// <summary>
+        /// Test tax calculation
+        /// </summary>
         [TestMethod]
         public void CalculateTax()
         {
@@ -89,6 +102,9 @@
             Assert.AreEqual(922, taxManager.CalculateTax(taxList, 60050));
         }
 
+        /// <summary>
+        /// Generate employee payslip based on employee record
+        /// </summary>
         [TestMethod]
         public void GenerateOutputData()
         {
@@ -102,6 +118,7 @@
             Assert.AreEqual(outputData.GrossIncome, 5004);
             Assert.AreEqual(outputData.Super, 450);
             Assert.AreEqual(outputData.NetIncome, 4082);
+            Assert.AreEqual(outputData.PayPeriod, inputData.PaymentStartDate);
         }
 
         private List<Tax> CreateTaxList()
