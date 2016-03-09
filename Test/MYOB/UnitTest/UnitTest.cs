@@ -36,10 +36,9 @@
         {
             var testContainer = new WindsorContainer();
 
-            testContainer.Register(Component.For(typeof(IPayslipManager)).ImplementedBy(typeof(PayslipManager)).LifestyleTransient());
+            testContainer.Register(Component.For(typeof(ICalculationManager)).ImplementedBy(typeof(CalculationManager)).LifestyleTransient());
             testContainer.Register(Component.For(typeof(ITaxManager)).ImplementedBy(typeof(TaxManager)).LifestyleTransient());
             testContainer.Register(Component.For(typeof(IFileReadAccess<>)).ImplementedBy(typeof(CsvFileReadAccess<>)).Named(Container.CsvFileReadAccess).LifestyleTransient());
-            testContainer.Register(Component.For(typeof(IFileWriteAccess<>)).ImplementedBy(typeof(CsvFileWriteAccess<>)).Named(Container.CsvFileWriteAccess).LifestyleTransient());
 
             return testContainer;
         }
@@ -93,11 +92,11 @@
         [TestMethod]
         public void GenerateOutputData()
         {
-            var payslipManager = container.Resolve<IPayslipManager>();
+            var calculationManager = container.Resolve<ICalculationManager>();
             var taxManager = MockRepository.GenerateStub<ITaxManager>();
             taxManager.Stub(stub => stub.CalculateTax(null, 0)).IgnoreArguments().Return(922);
             var inputData = CreateInputData();
-            var outputData = payslipManager.GenerateOutputData(inputData, CreateTaxList(), taxManager);
+            var outputData = calculationManager.GenerateOutputData(inputData, CreateTaxList(), taxManager);
 
             Assert.AreEqual(outputData.Name, inputData.FirstName + " " + inputData.LastName);
             Assert.AreEqual(outputData.GrossIncome, 5004);

@@ -1,40 +1,37 @@
 ﻿namespace Calculator.Manager
 {
-    using System;
     using System.Collections.Generic;
 
     using Calculator.Interface;
     using Calculator.Model;
+    using Calculator.Register;
+
+    using Castle.Windsor;
 
     public class PayslipManager : IPayslipManager
     {
-        public OutputData GenerateOutputData(InputData inputData, List<Tax> taxList, ITaxManager manager)
+        public void GeneratePayslip(
+            IWindsorContainer container,
+            string inputPath,
+            string outputPath,
+            string taxTablePath)
         {
-            var outputData = new OutputData();
+            var fileReadInputData = container.Resolve<IFileReadAccess<InputData>>(Container.CsvFileReadAccess);
+            var fileWriteOutputData = container.Resolve<IFileWriteAccess<OutputData>>(Container.CsvFileWriteAccess);
+            var payslipManager = container.Resolve<ICalculationManager>();
+            var taxManager = container.Resolve<ITaxManager>();
+            var fileReadTaxData = container.Resolve<IFileReadAccess<Tax>>(Container.CsvFileReadAccess);
 
-            outputData.Name = GetName(inputData.FirstName, inputData.LastName);
-            outputData.PayPeriod = inputData.PaymentStartDate;
-            outputData.GrossIncome = GetGrossIncome(inputData.AnnualSalary);
-            outputData.Super = GetSuper(outputData.GrossIncome, inputData.SuperRate);
-            outputData.IncomeTax = manager.CalculateTax(taxList, inputData.AnnualSalary);
-            outputData.NetIncome = outputData.GrossIncome - outputData.IncomeTax;
+            var taxList = fileReadTaxData.ReadFile(taxTablePath);
+            var records = fileReadInputData.ReadFile(inputPath);
+            var outputData = new List<OutputData>();
 
-            return outputData;
-        }
+            foreach (var record in records)
+            {
+                outputData.Add(payslipManager.GenerateOutputData(record, taxList, taxManager));
+            }
 
-        private string GetName(string firstName, string lastName)
-        {
-            return firstName + " " + lastName;
-        }
-
-        private int GetGrossIncome(int annualSalary)
-        {
-            return Convert.ToInt32(annualSalary / 12);
-        }
-
-        private int GetSuper(int grossIncome, int super)
-        {
-            return Convert.ToInt32(grossIncome * super / 100);
+            fileWriteOutputData.WriteFile(outputPath, outputData);
         }
     }
 }

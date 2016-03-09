@@ -52,10 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\ICalculationManager.cs" />
     <Compile Include="Interface\ICalculatorContainer.cs" />
+    <Compile Include="Interface\IFileAccess.cs" />
+    <Compile Include="Interface\IPayslipManager.cs" />
     <Compile Include="Interface\ITaxManager.cs" />
-    <Compile Include="Manager\TaxManager.cs" />
     <Compile Include="Manager\PayslipManager.cs" />
+    <Compile Include="Manager\TaxManager.cs" />
+    <Compile Include="Manager\CalculationManager.cs" />
     <Compile Include="Converter\PercentageConverter.cs" />
     <Compile Include="DataAccess\CsvFileAccess.cs" />
     <Compile Include="DataAccess\FileAccess.cs" />
@@ -63,8 +67,6 @@
     <Compile Include="Model\OutputData.cs" />
     <Compile Include="Model\InputData.cs" />
     <Compile Include="Extension\FileHelpersTypeExtensions.cs" />
-    <Compile Include="Interface\IFileAccess.cs" />
-    <Compile Include="Interface\IPayslipManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register\Container.cs" />
     <Compile Include="Util\ReadFile.cs" />
@@ -81,7 +83,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

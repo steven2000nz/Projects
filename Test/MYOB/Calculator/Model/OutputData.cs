@@ -2,6 +2,7 @@
 {
     using FileHelpers;
 
+    [IgnoreFirst(1)]
     [DelimitedRecord(",")]
     public class OutputData
     {

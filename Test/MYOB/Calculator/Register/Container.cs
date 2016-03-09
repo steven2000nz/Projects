@@ -16,13 +16,15 @@
             var container = new WindsorContainer();
 
             container.Register(
-                Component.For(typeof(IPayslipManager)).ImplementedBy(typeof(PayslipManager)).LifestyleTransient());
+                Component.For(typeof(ICalculationManager)).ImplementedBy(typeof(CalculationManager)).LifestyleTransient());
             container.Register(
                 Component.For(typeof(ITaxManager)).ImplementedBy(typeof(TaxManager)).LifestyleTransient());
             container.Register(
                 Component.For(typeof(IFileReadAccess<>)).ImplementedBy(typeof(CsvFileReadAccess<>)).Named(CsvFileReadAccess).LifestyleTransient());
             container.Register(
                 Component.For(typeof(IFileWriteAccess<>)).ImplementedBy(typeof(CsvFileWriteAccess<>)).Named(CsvFileWriteAccess).LifestyleTransient());
+            container.Register(
+                Component.For(typeof(IPayslipManager)).ImplementedBy(typeof(PayslipManager)).LifestyleTransient());
 
             Name = container.Name;
 
