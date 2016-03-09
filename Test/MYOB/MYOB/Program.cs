@@ -16,17 +16,24 @@
 
         private static void Main(string[] args)
         {
-            var inputDataPath = ReadInput("Please enter input data path", @"Data\InputData.csv");
-            var outputDataPath = ReadInput("Please enter output data path", @"Data\OutputData.csv");
-            var taxTablePath = ReadInput("Please enter tax table path", @"Tax\TaxTable.csv");
+            try
+            {
+                var inputDataPath = ReadInput("Please enter input data path", @"Data\InputData.csv");
+                var outputDataPath = ReadInput("Please enter output data path", @"Data\OutputData.csv");
+                var taxTablePath = ReadInput("Please enter tax table path", @"Tax\TaxTable.csv");
 
-            RegisterContainers();
+                RegisterContainers();
 
-            var calculatorContainer = Container.GetChildContainer(Calculator.Register.Container.Name);
-            var payslipManager = calculatorContainer.Resolve<IPayslipManager>();
-            payslipManager.GeneratePayslip(calculatorContainer, inputDataPath, outputDataPath, taxTablePath);
+                var calculatorContainer = Container.GetChildContainer(Calculator.Register.Container.Name);
+                var payslipManager = calculatorContainer.Resolve<IPayslipManager>();
+                payslipManager.GeneratePayslip(calculatorContainer, inputDataPath, outputDataPath, taxTablePath);
 
-            WriteLine($"Payslip is written to '{outputDataPath}'.");
+                WriteLine($"Payslip is written to '{outputDataPath}'.");
+            }
+            catch (Exception e)
+            {
+                WriteLine($"Failed to generate payslip: {e.Message}");
+            }
         }
 
         private static string ReadInput(string requestInput, string defaultPath)
