@@ -1,9 +1,9 @@
-Test/MYOB/Calculator/bin/
-Test/MYOB/Calculator/obj/
-Test/MYOB/MYOB/bin/
-Test/MYOB/MYOB/obj/
-Test/MYOB/UnitTest/bin/
-Test/MYOB/UnitTest/obj/
-Test/MYOB/UnitTestBDD/bin/
-Test/MYOB/UnitTestBDD/obj/
-Test/MYOB/TestResults/
+Employee Monthly Payslip/Employee Monthly Payslip/Calculator/bin/
+Employee Monthly Payslip/Employee Monthly Payslip/Calculator/obj/
+Employee Monthly Payslip/Employee Monthly Payslip/Main/bin/
+Employee Monthly Payslip/Employee Monthly Payslip/Main/obj/
+Employee Monthly Payslip/Employee Monthly Payslip/UnitTest/bin/
+Employee Monthly Payslip/Employee Monthly Payslip/UnitTest/obj/
+Employee Monthly Payslip/Employee Monthly Payslip/UnitTestBDD/bin/
+Employee Monthly Payslip/Employee Monthly Payslip/UnitTestBDD/obj/
+Employee Monthly Payslip/Employee Monthly Payslip/TestResults/
