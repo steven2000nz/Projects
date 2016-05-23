@@ -1,0 +1,13 @@
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\bin\Debug\Data\InputData.csv
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\bin\Debug\Data\OutputData.csv
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\bin\Debug\Tax\TaxTable.csv
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\bin\Debug\Calculator.dll
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\bin\Debug\Calculator.pdb
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\bin\Debug\Castle.Core.dll
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\bin\Debug\Castle.Windsor.dll
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\bin\Debug\FileHelpers.dll
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\bin\Debug\Castle.Core.xml
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\bin\Debug\Castle.Windsor.xml
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\bin\Debug\FileHelpers.xml
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\obj\Debug\Calculator.dll
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Calculator\obj\Debug\Calculator.pdb

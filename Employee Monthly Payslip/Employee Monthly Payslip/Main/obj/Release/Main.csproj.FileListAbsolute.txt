@@ -1,0 +1,17 @@
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\Data\InputData.csv
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\Data\OutputData.csv
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\Tax\TaxTable.csv
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\EmployeeMonthlyPayslip.exe.config
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\EmployeeMonthlyPayslip.exe
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\EmployeeMonthlyPayslip.pdb
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\Calculator.dll
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\Castle.Core.dll
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\Castle.Windsor.dll
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\FileHelpers.dll
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\Calculator.pdb
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\Castle.Core.xml
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\Castle.Windsor.xml
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\bin\Release\FileHelpers.xml
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\obj\Release\Main.csprojResolveAssemblyReference.cache
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\obj\Release\EmployeeMonthlyPayslip.exe
+I:\Projects\Employee Monthly Payslip\Employee Monthly Payslip\Main\obj\Release\EmployeeMonthlyPayslip.pdb
