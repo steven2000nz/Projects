@@ -8,8 +8,6 @@
 
     using Castle.Windsor;
 
-    using static System.Console;
-
     internal class Program
     {
         private static readonly WindsorContainer Container = new WindsorContainer();
@@ -31,18 +29,18 @@
                 var payslipManager = calculatorContainer.Resolve<IPayslipManager>();
                 payslipManager.GeneratePayslip(calculatorContainer, inputDataPath, outputDataPath, taxTablePath);
 
-                WriteLine($"Payslip is written to '{outputDataPath}'.");
+                Console.WriteLine("Payslip is written to '{0}'.", outputDataPath);
             }
             catch (Exception e)
             {
-                WriteLine($"Failed to generate payslip: {e.Message}");
+                Console.WriteLine("Failed to generate payslip: {0}", e.Message);
             }
         }
 
         private static string ReadInput(string requestInput, string defaultPath)
         {
-            WriteLine(requestInput + ":");
-            var path = ReadLine()?.Trim();
+            Console.WriteLine(requestInput + ":");
+            var path = Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(path))
             {

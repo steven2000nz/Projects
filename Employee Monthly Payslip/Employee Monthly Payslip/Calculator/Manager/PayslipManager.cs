@@ -35,7 +35,8 @@
                 {
                     var outputData = payslipManager.GenerateOutputData(record, taxList, taxManager);
                     string formatedRecord = 
-                        string.Format($"{outputData.Name},{outputData.PayPeriod},{outputData.GrossIncome},{outputData.IncomeTax},{outputData.NetIncome},{outputData.Super}");
+                        string.Format("{0},{1},{2},{3},{4},{5}",
+                                      outputData.Name, outputData.PayPeriod, outputData.GrossIncome, outputData.IncomeTax, outputData.NetIncome, outputData.Super);
                     sw.WriteLine(formatedRecord);
                 });
             }
